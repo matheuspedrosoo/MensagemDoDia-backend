@@ -8,13 +8,13 @@ const port = process.env.PORT || 5000
 
 let data = new Date()
 
-let MessageDay = require('./src/mensagemDoDia')
+let MensagemDoDia = require('./src/mensagemDoDia')
 
 app.get('/', (req, res) => {
-  let day = data.getDate()
-  let SelectMessage = MessageDay.returnMenssageDay(day)
+  let dia = data.getDate()
+  let mensagem = MensagemDoDia.returnMenssageDay(dia)
 
-  res.json({ mensagem: SelectMessage })
+  res.json({ mensagem: mensagem, dia: dia })
 })
 
-app.listen(port, () => console.log('Server runing on port: ' + port))
+app.listen(port, () => console.log('Servidor rodando na porta: ' + port))
